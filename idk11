@@ -1,0 +1,98 @@
+--[[
+    VC9 Hub - مربع أسود بزرين
+    قديم | جديد
+--]]
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local TweenService = game:GetService("TweenService")
+
+local guiParent = nil
+pcall(function() guiParent = gethui() end)
+if not guiParent then pcall(function() guiParent = game:GetService("CoreGui") end) end
+if not guiParent then guiParent = LocalPlayer:WaitForChild("PlayerGui") end
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "VC9_Hub"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Parent = guiParent
+
+-- مربع أسود
+local MainBox = Instance.new("Frame")
+MainBox.Name = "MainBox"
+MainBox.Size = UDim2.new(0, 320, 0, 120)
+MainBox.Position = UDim2.new(0.5, -160, 0.5, -60)
+MainBox.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+MainBox.BorderSizePixel = 0
+MainBox.Active = true
+MainBox.Draggable = true
+MainBox.Parent = ScreenGui
+
+-- عنوان
+local Title = Instance.new("TextLabel")
+Title.Name = "Title"
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.Position = UDim2.new(0, 0, 0, 10)
+Title.BackgroundTransparency = 1
+Title.Text = "VC9 HUB"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 20
+Title.Font = Enum.Font.GothamBlack
+Title.Parent = MainBox
+
+-- زر قديم (يسار)
+local OldBtn = Instance.new("TextButton")
+OldBtn.Name = "OldBtn"
+OldBtn.Size = UDim2.new(0, 120, 0, 40)
+OldBtn.Position = UDim2.new(0, 25, 0, 55)
+OldBtn.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
+OldBtn.BorderSizePixel = 0
+OldBtn.Text = "قديم"
+OldBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+OldBtn.TextSize = 18
+OldBtn.Font = Enum.Font.GothamBold
+OldBtn.AutoButtonColor = false
+OldBtn.Parent = MainBox
+
+-- زر جديد (يمين)
+local NewBtn = Instance.new("TextButton")
+NewBtn.Name = "NewBtn"
+NewBtn.Size = UDim2.new(0, 120, 0, 40)
+NewBtn.Position = UDim2.new(0, 175, 0, 55)
+NewBtn.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
+NewBtn.BorderSizePixel = 0
+NewBtn.Text = "جديد"
+NewBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+NewBtn.TextSize = 18
+NewBtn.Font = Enum.Font.GothamBold
+NewBtn.AutoButtonColor = false
+NewBtn.Parent = MainBox
+
+-- تأثيرات
+OldBtn.MouseEnter:Connect(function()
+    TweenService:Create(OldBtn, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(255, 30, 30)}):Play()
+end)
+OldBtn.MouseLeave:Connect(function()
+    TweenService:Create(OldBtn, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(180, 0, 0)}):Play()
+end)
+
+NewBtn.MouseEnter:Connect(function()
+    TweenService:Create(NewBtn, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(255, 30, 30)}):Play()
+end)
+NewBtn.MouseLeave:Connect(function()
+    TweenService:Create(NewBtn, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(180, 0, 0)}):Play()
+end)
+
+-- وظائف الأزرار
+OldBtn.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+    loadstring(game:HttpGet("https://pastefy.app/ZMdIy2tW/raw"))()
+end)
+
+NewBtn.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ghr30657-hue/Vc9_op/refs/heads/main/Vc9Hub"))()
+end)
+
+print("✅ VC9 Hub جاهز!")
