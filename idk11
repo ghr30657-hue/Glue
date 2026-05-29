@@ -92,7 +92,7 @@ end)
 
 NewBtn.MouseButton1Click:Connect(function()
     ScreenGui:Destroy()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ghr30657-hue/Vc9_op/refs/heads/main/Vc9Hub"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ghr30657-hue/Mr-X-/refs/heads/main/%D8%B3%D9%83%D8%B1%D8%A8%D8%AA%20%D9%85%D8%A7%D8%A8%20%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D8%AA%20%D8%AC%D8%AF%D9%8A%D8%AF"))()
 end)
 
 print("✅ VC9 Hub جاهز!")
